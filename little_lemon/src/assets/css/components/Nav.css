@@ -1,0 +1,155 @@
+#top-nav {
+    border: 0.0625rem solid red;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    min-width: fit-content;
+}
+
+#left-nav-part {
+    grid-column: 1 / span 3;
+    border: 0.0625rem solid #000000;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-left: 1.875rem;
+    min-width: fit-content;
+}
+
+#left-nav-part-logo-link {
+    display: none;
+}
+
+#hamburger-menu {
+    position: relative;
+    display: inline-block;
+}
+
+#hamburger-menu-svg {
+    max-width: 100%;
+    height: auto;
+    min-width: 2.1875rem;
+}
+
+#hamburger-menu-content {
+    position: absolute;
+    display: none;
+    min-width: 10rem;
+    box-shadow: 0rem 0.5rem 1rem 0rem rgba(0,0,0,0.2);
+    z-index: 1;
+    background-color: #f9f9f9;
+}
+
+#hamburger-menu-content .hamburger-menu-link{
+    padding: 0.75rem 1rem;
+    text-decoration: none;
+    display: block;
+    color: #495E57;
+}
+
+#hamburger-menu-content .hamburger-menu-link:hover {
+    background-color: #f1f1f1;
+}
+
+#hamburger-menu:hover #hamburger-menu-content {
+    display: block;
+}
+
+#hamburger-menu:hover #hamburger-menu-svg {
+    background-color:  #f1f1f1;
+    border-radius: 0.625rem;
+}
+
+#middle-nav-part {
+    grid-column: 4 / span 6;
+    border: 0.0625rem solid #000000;
+    display: flex;
+    justify-content: center;
+    min-width: fit-content;
+}
+
+#middle-nav-part-logo-image {
+    max-width: 100%;
+    height: auto;
+    min-width: 7.1875rem;
+}
+
+#middle-nav-part-logo-link {
+    display: flex;
+    align-items: center;
+}
+
+#middle-nav-part-links-div {
+    display: none;
+}
+
+#right-nav-part {
+    grid-column: 10 / span 3;
+    border: 0.0625rem solid #000000;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 3.75rem;
+    min-width: fit-content;
+}
+
+#cart-link {
+    border: 0.0625rem;
+}
+
+#cart-svg {
+    max-width: 100%;
+    height: auto;
+    min-width: 2.1875rem;
+}
+
+@media screen and (min-width: 769px) {
+
+    #top-nav {
+        max-width: 100%;
+    }
+
+    #left-nav-part-logo-image {
+        max-width: 100%;
+        height: auto;
+    }
+
+    #left-nav-part-logo-link{
+        display: flex;
+        align-items: center;
+    }
+
+    #hamburger-menu {
+        display: none;
+    }
+
+    #left-nav-part-logo-image {
+        max-width: 100%;
+        height: auto;
+    }
+
+    #middle-nav-part-logo-link{
+        display: none;
+    }
+
+    #middle-nav-part-links-div {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        border: 0.0625rem solid black;
+        width: 100%;
+        align-items: center;
+    }
+
+    .middle-nav-part-link{
+        text-decoration: none;
+        color: #495E57;
+        font-size: 1.125rem;
+        font-weight: bold;
+    
+
+    }
+    
+
+}
+
+

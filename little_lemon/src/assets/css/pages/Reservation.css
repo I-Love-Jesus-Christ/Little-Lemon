@@ -1,0 +1,8 @@
+#content-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
