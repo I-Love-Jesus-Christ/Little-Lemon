@@ -230,18 +230,9 @@ function Reservation_Form(){
             event.target.className = "required-error-input";
             return;
         }
-    }
-
-    function handle_hour_blur(event){
-        let current_hour = event.target.value;
-
-        /*Now we must validate current_hour*/
-        if (current_hour == "") {
-            return;
-        }
 
         /* We must validate if the selected time is available for the selected date */
-        if (minute != "" && minute_error_message == "" && date != "" && date_error_message == "" && hour_error_message == ""){
+        if (minute != "" && minute_error_message == "" && date != "" && date_error_message == ""){
             const selected_time = `${current_hour}:${minute} ${meridiem_value}`;
             const selected_time_is_available = available_times.includes(selected_time);
             if (selected_time_is_available == false){
@@ -251,6 +242,7 @@ function Reservation_Form(){
             }
         }
     }
+
 
     function handle_minute_change(event){
         let current_minute = event.target.value;
@@ -301,33 +293,21 @@ function Reservation_Form(){
             return;
         }
 
-    }
-
-    function handle_minute_blur(event){
-        let current_minute = event.target.value;
-
-         /* Now we must validate current_minute */
-         if (current_minute == ""){
-            return;
-        }
-
-        /* We must reset the className */
-        if(current_minute.length == 2 && minute_error_message == ""){
-            event.target.className = "no-error";
-        }
-
-        /* We must validate if the selected time is available for the selected date */
-        if(hour != "" && hour_error_message == "" && date != "" && date_error_message == "" && minute_error_message == ""){
-            const selected_time = `${hour}:${current_minute} ${meridiem_value}`;
-            const selected_time_is_available = available_times.includes(selected_time);
-            if (selected_time_is_available == false){
-                set_selected_time_error_message(`${selected_time} is not an available time to make a reservation on ${format_date(date)}.`);
-            } else {
-                set_selected_time_confirmation_message(`${selected_time} is an available time to make a reservation on ${format_date(date)}.`);
+        if(current_minute.length == 2){
+            /* We must validate if the selected time is available for the selected date */
+            if(hour != "" && hour_error_message == "" && date != "" && date_error_message == ""){
+                const selected_time = `${hour}:${current_minute} ${meridiem_value}`;
+                const selected_time_is_available = available_times.includes(selected_time);
+                if (selected_time_is_available == false){
+                    set_selected_time_error_message(`${selected_time} is not an available time to make a reservation on ${format_date(date)}.`);
+                } else {
+                    set_selected_time_confirmation_message(`${selected_time} is an available time to make a reservation on ${format_date(date)}.`);
+                }
             }
         }
-
     }
+
+
 
     function handle_name_change(event){
         let current_name = event.target.value;
@@ -541,7 +521,7 @@ function Reservation_Form(){
             <p className="error-message" id="date-error-message">{date_error_message}</p>
             }
             {(date_error_message == "" && date != "") &&
-            <section>
+            <section id="available-reservation-times">
                 <h3>Available reservation times for {format_date(date)}</h3>
                 <ul>{available_times.length > 0 && available_times_jsx}</ul>
             </section>
@@ -551,19 +531,19 @@ function Reservation_Form(){
                 <div id="hour-container" className="item">
                     {empty_hour_error == true ?(<>
                     <label htmlFor="hour"><span className="required-error-asterik">*</span> Hour</label>
-                    <input type="text" inputMode="numeric" id="hour" name="hour" required min="1" max="12" className="required-error-input" onBlur={(event)=> handle_hour_blur(event)} onChange={(event) => handle_hour_change(event)}/>
+                    <input type="text" inputMode="numeric" id="hour" name="hour" required min="1" max="12" className="required-error-input"  onChange={(event) => handle_hour_change(event)}/>
                     </>) : (<>
                     <label htmlFor="hour">Hour</label>
-                    <input type="text" inputMode="numeric" id="hour" name="hour" required min="1" max="12" className="" onBlur={(event)=> handle_hour_blur(event)} onChange={(event) => handle_hour_change(event)}/>
+                    <input type="text" inputMode="numeric" id="hour" name="hour" required min="1" max="12" className="" onChange={(event) => handle_hour_change(event)}/>
                     </>)}
                 </div>
                 <div id="minute-container" className="item">
                     {empty_minute_error == true ?(<>
                     <label htmlFor="minute"><span className="required-error-asterik">*</span> Minute</label>
-                    <input type="text" inputMode="numeric" id="minute" name="minute" placeholder="MM" required min="0" max="60" className="required-error-input" onChange={(event) => handle_minute_change(event)} onBlur={(event) => handle_minute_blur(event)}/>
+                    <input type="text" inputMode="numeric" id="minute" name="minute" placeholder="MM" required min="0" max="60" className="required-error-input" onChange={(event) => handle_minute_change(event)}/>
                     </>):(<>
                     <label htmlFor="minute">Minute</label>
-                    <input type="text" inputMode="numeric" id="minute" name="minute" placeholder="MM" required min="0" max="60" className="" onChange={(event) => handle_minute_change(event)} onBlur={(event) => handle_minute_blur(event)}/>
+                    <input type="text" inputMode="numeric" id="minute" name="minute" placeholder="MM" required min="0" max="60" className="" onChange={(event) => handle_minute_change(event)} />
                     </>)}
                 </div>
                 <div id="time-button-container" className="item">
