@@ -160,13 +160,15 @@ function Reservation_Form(){
     }
 
     const meridiem_value_is_set_style = {
-        backgroundColor: "#FBDABB",
-        color: "#333333"
+        backgroundColor: "#EE9972",
+        color: "#333333",
+        fontWeight: 666
     };
 
     const meridiem_value_is_not_set_style = {
-        backgroundColor: "#495E57",
-        color: "#FFFFFF"
+        backgroundColor: "#FBDABB",
+        color: "#333333",
+        fontWeight: 666
     };
 
     const available_times_jsx = available_times.map((time) => {
@@ -596,7 +598,7 @@ function Reservation_Form(){
             <p id="selected-time-confirmation-message">{selected_time_confirmation_message}</p>
             }
             <label className="label-1" htmlFor="requests">Any requests? <span className="optional">(Optional)</span></label>
-            <textarea id="requests" maxLength="10000" name="requests" className="form-element-type-1 form-element-type-5" onChange={(event) => set_request(event.target.value)}></textarea>
+            <textarea id="requests" maxLength="10000" name="requests" rows="7" className="form-element-type-1 form-element-type-5" onChange={(event) => set_request(event.target.value)}></textarea>
             <input type="submit" value="Send" id="submit" disabled={form_error_exists()} className="form-element-type-1" onClick={(event)=> handle_submit_click(event)}/>
         </form>
     );

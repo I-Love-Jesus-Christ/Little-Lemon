@@ -4,7 +4,7 @@ import "../assets/css/pages/Reservation.css";
 
 function Reservation() {
     return (
-        <Layout className="layout">
+        <Layout>
             <div id="content-container">
                 <h1>Reserve a table</h1>
                 <p>Please fill the form below to reserve a table.</p>

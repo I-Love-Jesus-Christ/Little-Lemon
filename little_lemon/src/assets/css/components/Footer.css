@@ -1,20 +1,16 @@
-.footer-container{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    height: 100%;
-    border: 1px solid red;
-    margin-top: auto;
-}
-
 footer {
+    padding-top: 0.625rem;
+    padding-bottom: 0.625rem;
     display: grid;
     grid-template-rows: auto auto;
-    border: 0.0625rem solid orange;
     padding-left: 3.75rem;
-    width: 100%;
-    
+    background-color: #495E57;
+    flex-shrink: 0;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-right: 3.75rem;
 }
+
 
 #footer-nav-1{
     grid-row: 1 / span 1;
@@ -33,12 +29,13 @@ footer {
     margin-right: 2.5rem;
     font-size: 1.25rem;
     font-weight: bold;
-    color: #333333;
+    color: white;
 }
 
 
 #copyright{
     grid-row: 2 / span 1;
+    color: white;
 }
 
 @media screen and (min-width: 769px) {

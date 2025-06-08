@@ -11,35 +11,63 @@
     margin-right: 0.625rem;
     display: flex;
     flex-direction: column;
-    width: 3.125rem;
+    width: 3.75rem;
     height: auto;
 }
 
 form {
-    border: 0.0625rem solid black;
     display: flex;
     flex-direction: column;
     max-width: 100%;
     height: auto;
     min-width: fit-content;
+    margin-bottom: 1.25rem;
 }
 
-input {
-    border: 0.0625rem solid #F4CE14;
+input{
     max-width: 100%;
     height: auto;
+    border: 0.0625rem solid #F4CE14;
+}
+
+input[type=text]{
+    background-color: #EDEFEE;
+    border-radius: 0.1875rem;
+    padding: 0.25rem;
+}
+
+input[type=number]{
+    background-color: #EDEFEE;
+    border-radius: 0.1875rem;   
+    padding: 0.25rem;
+}
+
+option{
+    background-color: white;
+}
+
+input[type=date]{
+    background-color: #EDEFEE;
+    border-radius: 0.1875rem;    
+    padding: 0.25rem;
 }
 
 textarea{
     border: 0.0625rem solid #F4CE14;
+    background-color: #EDEFEE;
+    border-radius: 0.1875rem;    
     max-width: 100%;
     height: auto;
+    padding: 0.25rem;
 }
 
 select {
     border: 0.0625rem solid #F4CE14;
+    background-color: #EDEFEE;
+    border-radius: 0.1875rem;    
     max-width: 100%;
     height: auto;
+    padding: 0.25rem;
 }
 
 button {
@@ -47,6 +75,7 @@ button {
     border-radius: 0.3125rem;
     max-width: 100%;
     height: auto;
+    padding: 0.25rem;
 }
 
 .error-message {
@@ -96,4 +125,10 @@ span {
 
 input[type=submit]{
     margin-top: 0.625rem;
+    background-color: #F4CE14;
+    color: #333333;
+    padding: 0.625rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+    border-radius: 1rem;
 }

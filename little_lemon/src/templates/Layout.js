@@ -1,15 +1,14 @@
-import Nav from "../components/Nav";
-import Footer from "../components/Footer";
 import "../assets/css/templates/Layout.css";
+import Nav from "../components/Nav";
+import Main from "../components/Main";
+import Footer from "../components/Footer";
+
 
 function Layout({children}){
     return (<>
         <Nav />
-        <main>{children}</main>
-        <div class="footer-container">
-            <Footer />
-        </div>
-
+        <Main>{children}</Main>
+        <Footer />
     </>);
 }
 

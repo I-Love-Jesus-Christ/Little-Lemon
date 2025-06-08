@@ -7,14 +7,14 @@ function Footer(){
             <nav id="footer-nav-1">
                 <Link className="footer-nav-link" to="/contact">Contact</Link>
                 <Link className="footer-nav-link" to="/about">About</Link>
-            </nav>    
+            </nav>
             <nav id="footer-nav-2">
                 <Link className="footer-nav-link" to="/contact">Contact</Link>
-                <Link className="footer-nav-link" to="/about">About</Link>               
+                <Link className="footer-nav-link" to="/about">About</Link>
             </nav>
             <p id="copyright">
                 &copy; 2025
-            </p>  
+            </p>
         </footer>
     );
 }
