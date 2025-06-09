@@ -1,0 +1,58 @@
+#content-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-left: 10%;
+    padding-right: 10%;
+    margin-top: 1.25rem;
+}
+
+#check-mark-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#confirmation-number {
+    margin-bottom: 1.25rem;
+}
+
+#reservation-details{
+    display: flex;
+    flex-direction: column;
+    padding: 0.625rem;
+    border: 0.125rem solid #495E57;
+    border-radius: 0.625rem;
+    background-color: #F4CE14;
+}
+
+#reservation-details p {
+    margin-top: 0.3125rem;
+}
+
+#reservation-details-section{
+    margin-bottom: 3.125rem;
+}
+
+#reservation-details-button-container {
+    display: flex;
+    flex-direction: row;
+    margin-top: 1.25rem;
+}
+
+#reservation-details-button-container button {
+    background-color: #495E57;
+    color: white;
+    font-weight: 500;
+    border: 0.0625rem solid  #F4CE14;
+    border-radius: 0.75rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-right: 3rem;
+    padding-left: 3rem;
+    font-size: 1.25rem;
+}
+
+#modify-button{
+    margin-right: 0.625rem;
+}

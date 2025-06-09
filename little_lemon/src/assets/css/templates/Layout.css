@@ -9,8 +9,8 @@ body {
   min-height: 100dvh; /* For modern browsers */
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
   width: 100%;
+  line-height: 1.5;
 }
 
 

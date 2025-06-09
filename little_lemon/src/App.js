@@ -6,13 +6,14 @@ import Login from './pages/Login';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import Menu_and_Order from './pages/Menu_and_Order';
-
+import Confirmed_Booking from "./pages/Confirmed_Booking";
 function App() {
   return (
     <>
       <Routes>
-        <Route element={<Home />} path="/"> </Route>
-        <Route element={<Reservation />} path="/reserve"></Route>
+        <Route element={<Confirmed_Booking/>} path="/confirmed-booking"></Route>
+        <Route element={<Reservation />} path="/"> </Route>
+        <Route element={<Home />} path="/home"></Route>
         <Route element={<Menu_and_Order />} path="/menu-and-order"></Route>
         <Route element={<Cart />} path="/cart"></Route>
         <Route element={<Login />} path="/login"></Route>

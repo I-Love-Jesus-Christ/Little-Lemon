@@ -1,6 +1,7 @@
 import "../assets/css/components/Reservation_Form.css";
 import {useState, useRef} from "react";
-import {fetchAPI} from "../api/meh";
+import {fetchAPI, submitAPI} from "../api/meh";
+import {useNavigate} from "react-router";
 
 function Reservation_Form(){
     const [name, set_name] = useState("");
@@ -11,7 +12,7 @@ function Reservation_Form(){
     const [hour, set_hour] = useState("");
     const [minute, set_minute] = useState("");
     const [meridiem_value, set_meridiem_value] = useState("AM");
-    const [request, set_request] = useState("");
+    const [requests, set_requests] = useState("");
     const [available_times, set_available_times] = useState([]);
     const [hour_error_message, set_hour_error_message] = useState("");
     const [minute_error_message, set_minute_error_message] = useState("");
@@ -30,6 +31,8 @@ function Reservation_Form(){
     const [empty_date_error, set_empty_date_error] = useState(false);
     const [empty_hour_error, set_empty_hour_error] = useState(false);
     const [empty_minute_error, set_empty_minute_error] = useState(false);
+
+    const navigate = useNavigate();
 
     function format_date(date){
         const split_date = date.split("-");
@@ -416,6 +419,7 @@ function Reservation_Form(){
 
     function form_error_exists(){
         if(name_error_message != "" || email_error_message != "" || occasion_error_message != "" || number_of_guests_error_message != "" || date_error_message != "" || hour_error_message != "" || minute_error_message != "" || selected_time_error_message != ""){
+            console.log(true);
             return true;
         }
         /*
@@ -426,27 +430,44 @@ function Reservation_Form(){
     }
 
     function handle_submit_click(event){
+        let an_empty_error_exists = false;
+
         if (!name) {
             set_empty_name_error(true);
+            an_empty_error_exists = true;
         }
         if (!email) {
             set_empty_email_error(true);
+            an_empty_error_exists = true;
         }
         if (!occasion) {
             set_empty_occasion_error(true);
+            an_empty_error_exists = true;
         }
         if(!number_of_guests) {
             set_empty_number_of_guests_error(true);
+            an_empty_error_exists = true;
         }
         if(!date) {
             set_empty_date_error(true);
+            an_empty_error_exists = true;
         }
         if(!hour) {
             set_empty_hour_error(true);
+            an_empty_error_exists = true;
         }
         if(!minute){
             set_empty_minute_error(true);
+            an_empty_error_exists = true;
         }
+        if(an_empty_error_exists == false){
+            const form_data =  {name, email, occasion, number_of_guests, date, hour, minute, requests};
+            const result = submitAPI(form_data);
+            if (result == true){
+                navigate("/confirmed-booking");
+            }
+        }
+
     }
 
 
@@ -578,7 +599,7 @@ function Reservation_Form(){
             <p id="selected-time-confirmation-message">{selected_time_confirmation_message}</p>
             }
             <label className="label-1" htmlFor="requests">Any requests? <span className="optional">(Optional)</span></label>
-            <textarea id="requests" maxLength="10000" name="requests" rows="7" className="form-element-type-1 form-element-type-5" onChange={(event) => set_request(event.target.value)}></textarea>
+            <textarea id="requests" maxLength="10000" name="requests" rows="7" className="form-element-type-1 form-element-type-5" onChange={(event) => set_requests(event.target.value)}></textarea>
             <input type="submit" value="Send" id="submit" disabled={form_error_exists()} className="form-element-type-1" onClick={(event)=> handle_submit_click(event)}/>
         </form>
     );

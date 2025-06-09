@@ -134,11 +134,16 @@ span {
 }
 
 input[type=submit]{
-    margin-top: 0.625rem;
+    margin-top: 1.25rem;
     background-color: #F4CE14;
     color: #333333;
     padding: 0.625rem;
     font-size: 1.25rem;
     font-weight: 600;
     border-radius: 1rem;
+    margin-bottom: 3.125rem;
+}
+
+input[type=submit]:disabled{
+    opacity: 0.33;
 }
