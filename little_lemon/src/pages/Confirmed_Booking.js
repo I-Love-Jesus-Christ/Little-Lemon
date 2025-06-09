@@ -13,7 +13,7 @@ function Confirmed_Booking(){
                     <h2 id="reservation-details-heading">Reservation details</h2>
                     <article id="reservation-details">
                         <p>Name: </p>
-                        <p>Email</p>
+                        <p>Email: </p>
                         <p>Occasion: </p>
                         <p>Number of people: </p>
                         <p>Date: </p>

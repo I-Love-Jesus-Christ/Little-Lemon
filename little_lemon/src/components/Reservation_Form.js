@@ -163,15 +163,16 @@ function Reservation_Form(){
     }
 
     const meridiem_value_is_set_style = {
-        backgroundColor: "#EE9972",
-        color: "#333333",
+        backgroundColor: "#495E57",
+        color: "white",
         fontWeight: 666
     };
 
     const meridiem_value_is_not_set_style = {
-        backgroundColor: "#FBDABB",
-        color: "#333333",
-        fontWeight: 666
+        backgroundColor: "#495E57",
+        color: "white",
+        fontWeight: 666,
+        opacity: 0.33
     };
 
     const available_times_jsx = available_times.map((time) => {
@@ -430,7 +431,9 @@ function Reservation_Form(){
     }
 
     function handle_submit_click(event){
+        event.preventDefault();
         let an_empty_error_exists = false;
+
 
         if (!name) {
             set_empty_name_error(true);
@@ -473,7 +476,7 @@ function Reservation_Form(){
 
 
     return (
-        <form method="POST" action="">
+        <form action="" method="POST">
             {empty_name_error == true ? (<>
             <label htmlFor="name" className="label-1"><span className="required-error-asterik">*</span> Name</label>
             <input type="text" id="name" name="name" required  maxLength="1020" className="required-error-input" onChange={(event) => handle_name_change(event)} />
